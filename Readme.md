@@ -64,7 +64,6 @@ Planning on creating examples of:
 - 18: Cycle Sort
 - 19: Cocktail Sort
 - 20: Strand Sort
-
 - 21: Bitonic Sort
 - 22: Pancake sorting
 - 23: Binary Insertion Sort
