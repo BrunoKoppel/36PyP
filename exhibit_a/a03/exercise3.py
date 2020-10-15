@@ -9,15 +9,15 @@ def printHelpMenu():
 	print("Instructions of this program:\n");
 	print("rand [a] [b]   Randomize the set of numbers of the main list, from [a] to [b]");
 	print("set  [n]       Set [n] amount of numbers to be the size of the main list.\n");
-	print("cs [n]         create a derivarive list from main, with items smaller than [n].");
-	print("ce [n]         create a derivarive list from main, with items equal to [n].");
-	print("cb [n]         create a derivarive list from main, with items bigger than [n].\n");
-	print("so sg          Sort the list from smaller to greatest number");
-	print("so gs          Sort the list from the greatest to smaller number\n");
-	print("pr main        Prints the main list.");
-	print("pr deri        Prints the derivative list\n");
-	print("he             You get to see me once more.");
-	print("ex             Exits the program.\n");
+	print("gen -s [n]     Generate a derivarive list from main, with items smaller than [n].");
+	print("gen -e [n]     Generate a derivarive list from main, with items equal to [n].");
+	print("geb -b [n]     Generate a derivarive list from main, with items bigger than [n].\n");
+	print("sort sg        Sort the list from smaller to greatest number");
+	print("sort gs        Sort the list from the greatest to smaller number\n");
+	print("print main     Prints the main list.");
+	print("print deri     Prints the derivative list\n");
+	print("help           You get to see me once more.");
+	print("exit           Exits the program.\n");
     
 def printSecretScroll():
 	print("easter bugs make me strong... meow");
@@ -60,7 +60,13 @@ def checkUserInputCommand(prompt):
 
 """ Program Methods """
 
-def generateRandomNumbers(minRange, maxRange, )
+def generateRandomNumbersForList(minRange, maxRange, mainList):
+	if (len(mainList) != 0):
+		for x in mainList:
+			x = random.randrange(minimumRange, maximumRange);
+	else:
+		print("First, set an amount of numbers in the list, run 'set' command for this");
+		
 
 
 """ 
@@ -91,11 +97,11 @@ while (machineState):
 	
 	command = processUserCommandLineInput("Exercise3@YourChoice~$ ");
 	
-	if (command[0] == "ex"):
+	if (command[0] == "exit"):
 		print("Bye bye.. :)");
 		machineState = False;
 		
-	elif (command[0] == "he"):
+	elif (command[0] == "help"):
 		printHelpMenu();
 		
 	elif (command[0] == "rand"):
@@ -111,12 +117,8 @@ while (machineState):
 		else:
 			maximumRange = command[2];
 		
-		if (len(mainList) != 0):
-			for x in mainList:
-				x = random.randrange(minimumRange, maximumRange);
-				
-		else:
-			print("First, set an amount of numbers in the list, run 'set' command for this");
+		generateRandomNumbersForList(minimumRange, maximumRange, mainList);
+			
 		
 	elif (command[0] == "set"):
 		
@@ -129,19 +131,19 @@ while (machineState):
 	
 	
 	"""	
-	elif (command[0] == "cs"):
+	elif (command[0] == "gen"):
 		
 	
-	elif (command[0] == "ce"):
+	elif (command[0] == "gen"):
 		
 	
-	elif (command[0] == "cb"):
+	elif (command[0] == "gen"):
 		
 	
-	elif (command[0] == "so"):
+	elif (command[0] == "sort"):
 		
 	
-	elif (command[0] == "pr"):
+	elif (command[0] == "print"):
 		
 	"""
 	
