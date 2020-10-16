@@ -58,17 +58,23 @@ def checkUserInputCommand(prompt):
         return None;
 
 
-""" Program Methods """
+""" 
 
-def generateRandomNumbersForList(minRange, maxRange, mainList):
-	if (len(mainList) != 0):
-		for x in mainList:
-			x = random.randrange(minimumRange, maximumRange);
-	else:
-		print("First, set an amount of numbers in the list, run 'set' command for this");
+	Program Methods 
+
+"""
+
+def generateRandomNumbersForList(minRange, maxRange):
+	return random.randrange(minimumRange, maximumRange);
 		
 
-
+def generateList(minRange, maxRange, mainList, numberInList):
+	for x in range (0, numberInList):
+		newNumber = random.randrange(minimumRange, maximumRange);
+		mainList.append(newNumber);
+	
+	
+	
 """ 
 
 	Welcome text 
@@ -117,11 +123,15 @@ while (machineState):
 		else:
 			maximumRange = command[2];
 		
-		generateRandomNumbersForList(minimumRange, maximumRange, mainList);
-			
+		if (len(mainList) != 0):
+			for x in mainList:
+				mainList[x] = generateRandomNumbersForList(minimumRange, maximumRange);
+		else:
+			print("\nThe range of values is updated, but your list is empty.\nRun 'set' commmand, to set a size to it.\n\n");
 		
 	elif (command[0] == "set"):
-		
+		if (command[1] > 0):
+			generateList
 		
 	elif (command[0] == "bko"):
 		printSecretScroll();
