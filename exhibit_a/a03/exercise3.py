@@ -61,6 +61,13 @@ def checkUserInputCommand(prompt):
         return None;
 
 
+def checkNumberInputCommand(number):
+	if (number.isdigit):
+		return int(number);
+	else:
+		print("\nString was given, instead of a number\n");
+		return None;
+
 """ 
 
 	Program Methods 
@@ -102,7 +109,8 @@ def generateDerivedList(condition, number):
 		print("Invalid command entered, check 'help' if you aren't sure.")
 		
 	return temporalList;
-	
+
+
 def sortList(listGiven, condition):
 	
 	if (condition == "lg"):
@@ -164,12 +172,12 @@ while (machineState):
 	elif (command[0] == "rand"):
 		random.seed();
 		
-		if (command[1] == None)
+		if (command[1] == None):
 			minimumRange = askUserNumberInput("Specify minimum range for random number generation: ")
 		else:
 			minimumRange = command[1];
 			
-		if (command[2] == None)
+		if (command[2] == None):
 			maximumRange = askUserNumberInput("Specify maximum range for random number generation: ")
 		else:
 			maximumRange = command[2];
@@ -181,9 +189,13 @@ while (machineState):
 			print("\nThe range of values is updated, but your list is empty.\nRun 'set' commmand, to set a size to it.\n\n");
 		
 	elif (command[0] == "set"):
-		if (command[1] > 0):
-			for index in range(0, command[1])
-			mainList[index] = generateRandomNumbersForList(minimumRange, maximumRange);
+		if (checkNumberInputCommand(command[1]) > 0):
+			for index in range(0, int(command[1])):
+				mainList[index] = generateRandomNumbersForList(minimumRange, maximumRange);
+				
+		elif (command[1] == None):
+			print("Value not given");
+			
 		else:
 			print("Error, value is zero or below.");
 			
@@ -198,25 +210,30 @@ while (machineState):
 			derivedList = sortList(derivedList, command[2]);
 			
 		elif (command[1] == None):
-			print("List not recognized");
+			print("List not given");
 			
 		else:
-			print("List not given");	
-		
+			print("List not recognized");	
+	
+	elif (command[0] == "print"):
+		if (command[0] == "main"):
+			print(mainList);
+			
+		if (command[0] == "deri"):
+			print(derivedList);
+			
+		if (command[0] == None):
+			print("List not given");
+			
+		else: 
+			print("List not recognized");
+	
 	elif (command[0] == "bko"):
 		printSecretScroll();
 		
 	else:
 		print("Command not recognized");	
 	
-	
-	"""	
-	
-	elif (command[0] == "print"):
-		
-	"""
-	
-	print(mainList);
 
 """
 
