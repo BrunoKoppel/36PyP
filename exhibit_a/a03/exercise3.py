@@ -9,9 +9,9 @@ def printHelpMenu():
 	print("Instructions of this program:\n");
 	print("rand [a] [b]   Randomize the set of numbers of the main list, from [a] to [b]");
 	print("set  [n]       Set [n] amount of numbers to be the size of the main list.\n");
-	print("gen -s [n]     Generate a derivarive list from main, with items smaller than [n].");
+	print("gen -l [n]     Generate a derivarive list from main, with items lesser than [n].");
 	print("gen -e [n]     Generate a derivarive list from main, with items equal to [n].");
-	print("geb -b [n]     Generate a derivarive list from main, with items bigger than [n].\n");
+	print("geb -g [n]     Generate a derivarive list from main, with items greater than [n].\n");
 	print("sort sg        Sort the list from smaller to greatest number");
 	print("sort gs        Sort the list from the greatest to smaller number\n");
 	print("print main     Prints the main list.");
@@ -72,8 +72,31 @@ def generateList(minRange, maxRange, mainList, numberInList):
 	for x in range (0, numberInList):
 		newNumber = random.randrange(minimumRange, maximumRange);
 		mainList.append(newNumber);
+
+
+def generateDerivedList(condition, number):
+	temporalList = [];
 	
-	
+	if (condition == "-l"):	
+		for x in mainList:
+			if (x < number):
+				temporalList.append(x);
+		
+	elif (condition == "-e"):
+		for x in mainList:
+			if (x == number):
+				temporalList.append(x);
+				
+	elif (condition == "-g"):
+		for x in mainList:
+			if (x > number):
+				temporalList.append(x);
+				
+	elif (condition == None):
+		print("You didn't enter a condition, check 'help' if you aren't sure.");
+		
+	else:
+		print("Invalid command entered, check 'help' if you aren't sure.")
 	
 """ 
 
@@ -93,6 +116,7 @@ printHelpMenu();
 """
 
 mainList = [];
+mainListAmountOfNumber = 0;
 derivedList = [];
 
 minimumRange = 0;
@@ -124,14 +148,21 @@ while (machineState):
 			maximumRange = command[2];
 		
 		if (len(mainList) != 0):
-			for x in mainList:
-				mainList[x] = generateRandomNumbersForList(minimumRange, maximumRange);
+			for index in mainList:
+				mainList[index] = generateRandomNumbersForList(minimumRange, maximumRange);
 		else:
 			print("\nThe range of values is updated, but your list is empty.\nRun 'set' commmand, to set a size to it.\n\n");
 		
 	elif (command[0] == "set"):
 		if (command[1] > 0):
-			generateList
+			for index in range(0, command[1])
+			mainList[index] = generateRandomNumbersForList(minimumRange, maximumRange);
+		else:
+			print("Error, value is zero or below.");
+			
+	elif (command[0] == "gen"):
+		derivedList = generateDerivedList(command[1], command[2]);
+		
 		
 	elif (command[0] == "bko"):
 		printSecretScroll();
@@ -141,7 +172,7 @@ while (machineState):
 	
 	
 	"""	
-	elif (command[0] == "gen"):
+	
 		
 	
 	elif (command[0] == "gen"):
