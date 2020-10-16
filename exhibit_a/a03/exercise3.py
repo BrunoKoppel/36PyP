@@ -7,17 +7,20 @@ import random;
 
 def printHelpMenu():
 	print("Instructions of this program:\n");
-	print("rand [a] [b]   Randomize the set of numbers of the main list, from [a] to [b]");
-	print("set  [n]       Set [n] amount of numbers to be the size of the main list.\n");
-	print("gen -l [n]     Generate a derivarive list from main, with items lesser than [n].");
-	print("gen -e [n]     Generate a derivarive list from main, with items equal to [n].");
-	print("geb -g [n]     Generate a derivarive list from main, with items greater than [n].\n");
-	print("sort sg        Sort the list from smaller to greatest number");
-	print("sort gs        Sort the list from the greatest to smaller number\n");
-	print("print main     Prints the main list.");
-	print("print deri     Prints the derivative list\n");
-	print("help           You get to see me once more.");
-	print("exit           Exits the program.\n");
+	print("Avoid writing \"[\" or \"]\", these are used to determine where a certain placeholder is expected.")
+	print("[main]:   The main list is the one that gets randomized and edited");
+	print("[deri]:   The deri(vative) list gets generated using the 'gen' command.\n");
+	print("rand [a] [b]    Randomize the set of numbers of the main list, from [a] to [b]");
+	print("set  [n]        Set [n] amount of numbers to be the size of the main list.\n");
+	print("gen -l [n]      Generate a derivarive list from main, with items lesser than [n].");
+	print("gen -e [n]      Generate a derivarive list from main, with items equal to [n].");
+	print("geb -g [n]      Generate a derivarive list from main, with items greater than [n].\n");
+	print("sort [list] lg  Sort (main/deri) from lesser to greatest number");
+	print("sort [list] gl  Sort (main/deri) from the greatest to lesser number\n");
+	print("print [list]    Prints the (main/deri) list.\n");
+	print("help            You get to see me once more.");
+	print("exit            Exits the program.\n");
+	
     
 def printSecretScroll():
 	print("easter bugs make me strong... meow");
@@ -97,6 +100,30 @@ def generateDerivedList(condition, number):
 		
 	else:
 		print("Invalid command entered, check 'help' if you aren't sure.")
+		
+	return temporalList;
+	
+def sortList(listGiven, condition):
+	
+	if (condition == "lg"):
+		for xIndex in listGiven:
+			for yIndex in listGiven:
+				if (yIndex < xIndex):
+					listGiven[xIndex], listGiven[yIndex] = listGiven[yIndex], listGiven[xIndex]
+				
+	elif (condition == "gl"):
+		for xIndex in listGiven:
+			for yIndex in listGiven:
+				if (yIndex > xIndex):
+					listGiven[xIndex], listGiven[yIndex] = listGiven[yIndex], listGiven[xIndex]
+		
+	elif (condition == None):
+		print("Condition not given");
+	
+	else:
+		print("Condition not recognized");
+	
+	return listGiven;
 	
 """ 
 
@@ -163,6 +190,18 @@ while (machineState):
 	elif (command[0] == "gen"):
 		derivedList = generateDerivedList(command[1], command[2]);
 		
+	elif (command[0] == "sort"):
+		if (command[1] == "main"):
+			mainList = sortList(mainList, command[2]);
+			
+		elif (command[1] == "deri"):
+			derivedList = sortList(derivedList, command[2]);
+			
+		elif (command[1] == None):
+			print("List not recognized");
+			
+		else:
+			print("List not given");	
 		
 	elif (command[0] == "bko"):
 		printSecretScroll();
@@ -173,17 +212,6 @@ while (machineState):
 	
 	"""	
 	
-		
-	
-	elif (command[0] == "gen"):
-		
-	
-	elif (command[0] == "gen"):
-		
-	
-	elif (command[0] == "sort"):
-		
-	
 	elif (command[0] == "print"):
 		
 	"""
@@ -192,6 +220,8 @@ while (machineState):
 
 """
 
-	I'm gonna pretend like I forgot to delete this just for effects
+	I'm gonna pretend like I forgot to delete this,
+		your truly,
+			bko
 	
 """
