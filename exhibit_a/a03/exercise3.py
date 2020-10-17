@@ -41,10 +41,13 @@ def processUserCommandLineInput(prompt):
 	userInputCommand = str(input(prompt));
 	spaceIndex = userInputCommand.find(" ");
 	
-	if (spaceIndex == -1):
-		spaceIndex = len(userInputCommand);
-	
-	command = [userInputCommand[:spaceIndex], userInputCommand[spaceIndex+1:]];
+	while (len(userInputCommand) > 0):
+		if (spaceIndex == -1):
+			spaceIndex = len(userInputCommand);
+		
+		command.append([userInputCommand[:spaceIndex], userInputCommand[spaceIndex+1:]]);
+		
+		
 	return command;
 
 def askUserNumberInput(prompt):
@@ -159,8 +162,11 @@ maximumRange = 1;
 
 machineState = True;
 while (machineState):
+	random.seed();
 	
 	command = processUserCommandLineInput("Exercise3@YourChoice~$ ");
+	print("Command entered:\n");
+	print(command);
 	
 	if (command[0] == "exit"):
 		print("Bye bye.. :)");
@@ -170,8 +176,6 @@ while (machineState):
 		printHelpMenu();
 		
 	elif (command[0] == "rand"):
-		random.seed();
-		
 		if (command[1] == None):
 			minimumRange = askUserNumberInput("Specify minimum range for random number generation: ")
 		else:
@@ -186,12 +190,12 @@ while (machineState):
 			for index in mainList:
 				mainList[index] = generateRandomNumbersForList(minimumRange, maximumRange);
 		else:
-			print("\nThe range of values is updated, but your list is empty.\nRun 'set' commmand, to set a size to it.\n\n");
+			print("\nThe range of values is updated, however your list is empty.\nRun 'set' commmand, to set a size to it.\n\n");
 		
 	elif (command[0] == "set"):
 		if (checkNumberInputCommand(command[1]) > 0):
 			for index in range(0, int(command[1])):
-				mainList[index] = generateRandomNumbersForList(minimumRange, maximumRange);
+				mainList.append(generateRandomNumbersForList(minimumRange, maximumRange));
 				
 		elif (command[1] == None):
 			print("Value not given");
@@ -216,13 +220,13 @@ while (machineState):
 			print("List not recognized");	
 	
 	elif (command[0] == "print"):
-		if (command[0] == "main"):
+		if (command[1] == "main"):
 			print(mainList);
 			
-		if (command[0] == "deri"):
+		elif (command[1] == "deri"):
 			print(derivedList);
 			
-		if (command[0] == None):
+		elif (command[1] == None):
 			print("List not given");
 			
 		else: 
