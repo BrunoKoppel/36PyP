@@ -5,9 +5,10 @@ import random;
 
 """ Help Menu print out"""
 
+
 def printHelpMenu():
 	print("Instructions of this program:\n");
-	print("Avoid writing \"[\" or \"]\", these are used to determine where a certain placeholder is expected.")
+	print("Avoid writing \"[\" or \"]\", these are used to determine where a certain variable or command is expected.")
 	print("[main]:   The main list is the one that gets randomized and edited");
 	print("[deri]:   The deri(vative) list gets generated using the 'gen' command.\n");
 	print("rand [a] [b]    Randomize the set of numbers of the main list, from [a] to [b]");
@@ -21,7 +22,6 @@ def printHelpMenu():
 	print("help            You get to see me once more.");
 	print("exit            Exits the program.\n");
 	
-    
 def printSecretScroll():
 	print("easter bugs make me strong... meow");
 	print("- -- .-.");
@@ -41,14 +41,17 @@ def processUserCommandLineInput(prompt):
 	userInputCommand = str(input(prompt));
 	spaceIndex = userInputCommand.find(" ");
 	
+	if (VERBOSE):
+		print(spaceIndex);
+
 	while (len(userInputCommand) > 0):
 		if (spaceIndex == -1):
 			spaceIndex = len(userInputCommand);
+		else:
+			commandResult.append([userInputCommand[:spaceIndex], userInputCommand[spaceIndex+1:]]);
 		
-		command.append([userInputCommand[:spaceIndex], userInputCommand[spaceIndex+1:]]);
 		
-		
-	return command;
+	return commandResult;
 
 def askUserNumberInput(prompt):
     userInput = input(prompt);
@@ -145,6 +148,7 @@ def sortList(listGiven, condition):
 print("Welcome to the 3rd Exercise: ");
 printHelpMenu();
 
+VERBOSE = True;
 
 
 """ 
@@ -242,7 +246,7 @@ while (machineState):
 """
 
 	I'm gonna pretend like I forgot to delete this,
-		your truly,
+		yours truly,
 			bko
 	
 """
