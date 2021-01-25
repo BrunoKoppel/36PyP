@@ -39,18 +39,32 @@ def printSecretScroll():
 
 def processUserCommandLineInput(prompt):
 	userInputCommand = str(input(prompt));
-	spaceIndex = userInputCommand.find(" ");
+	commandResult = NULL;
 	
 	if (VERBOSE):
-		print(spaceIndex);
+		print(userInputCommand);
 
 	while (len(userInputCommand) > 0):
+		if (VERBOSE):
+			print(len(userInputCommand));
+
+		spaceIndex = userInputCommand.find(" ");
+
+		if (VERBOSE):
+			print(spaceIndex);
+
 		if (spaceIndex == -1):
 			spaceIndex = len(userInputCommand);
 		else:
-			commandResult.append([userInputCommand[:spaceIndex], userInputCommand[spaceIndex+1:]]);
-		
-		
+			""" [:end] gets all characters from the beginning of the string to the variable end. """
+			commandResult.append(userInputCommand[:spaceIndex]);
+			userInputCommand = userInputCommand[spaceIndex+1:];
+
+		if (VERBOSE):
+			print(spaceIndex);
+			print(commandResult);
+			print(userInputCommand);
+	
 	return commandResult;
 
 def askUserNumberInput(prompt):
