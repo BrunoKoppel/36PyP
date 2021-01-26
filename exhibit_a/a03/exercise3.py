@@ -3,10 +3,14 @@
 
 import random;
 
-""" Help Menu print out"""
+"""
+
+Help Menu print out
+
+"""
 
 
-def printHelpMenu():
+def print_help_menu():
     print("Instructions of this program:\n");
     print("Avoid writing \"[\" or \"]\", these are used to determine where a certain variable or command is expected.")
     print("[main]:   The main list is the one that gets randomized and edited");
@@ -23,22 +27,22 @@ def printHelpMenu():
     print("exit            Exits the program.\n");
 
 
-def printSecretScroll():
+def print_secret_scroll():
     print("easter bugs make me strong... meow");
     print("- -- .-.");
     print("- - /  |                - - /|_/|      .-------------------.");
     print("   /   |  - _______________| @.@|     /    Bruno Köppel     )");
-    print("- |    |-- (______         >\_C/< ---/                     /");
+    print("- |    |-- (______         >\\_C/< ---/                     /");
     print("  |    |  -  -   / ______  _/____)  (   Brunokoppel.com   /");
-    print("-- \   | -  -   / /\ \   \ \         `-------------------'");
-    print(" -  \  |     - (_/  \_) - \_)");
+    print("-- \\   | -  -   / /\\ \\   \\ \\         `-------------------'");
+    print(" -  \\  |     - (_/  \\_) - \\_)");
     print("- -  | |\n\n");
 
 
 """ Functionality methods """
 
 
-def processUserCommandLineInput(prompt):
+def process_user_command_line_input(prompt):
     user_input_command = str(input(prompt));
     command_result = [];
 
@@ -69,23 +73,23 @@ def processUserCommandLineInput(prompt):
     return command_result;
 
 
-def askUserNumberInput(prompt):
-    userInput = input(prompt);
-    while (userInput.isdigit() == False):
-        userInput = input("Not an integer, try again: ");
-    return int(userInput);
+def ask_user_number_input(prompt):
+    user_input = input(prompt);
+    while not user_input.isdigit():
+        user_input = input("Not an integer, try again: ");
+    return int(user_input);
 
 
-def checkUserInputCommand(prompt):
-    userInput = input(prompt);
-    if (userInput.isdigit):
-        return userInput;
+def check_user_input_command(prompt):
+    user_input = input(prompt);
+    if user_input.isdigit:
+        return user_input;
     else:
         return None;
 
 
-def checkNumberInputCommand(number):
-    if (number.isdigit):
+def check_number_input_command(number):
+    if number.isdigit:
         return int(number);
     else:
         print("\nString was given, instead of a number\n");
@@ -94,87 +98,87 @@ def checkNumberInputCommand(number):
 
 """ 
 
-	Program Methods 
+Program Methods
 
 """
 
 
-def generateRandomNumbersForList(minRange, maxRange):
+def generate_random_numbers_for_list(min_range, max_range):
     return random.randrange(minimumRange, maximumRange);
 
 
-def generateList(minRange, maxRange, mainList, numberInList):
-    for x in range(0, numberInList):
-        newNumber = random.randrange(minimumRange, maximumRange);
-        mainList.append(newNumber);
+def generate_list(min_range, max_range, main_list, number_in_list):
+    for x in range(0, number_in_list):
+        new_number = random.randrange(min_range, max_range);
+        mainList.append(new_number);
 
 
-def generateDerivedList(condition, number):
-    temporalList = [];
+def generate_derived_list(condition, number):
+    temporal_list = [];
 
-    if (condition == "-l"):
+    if condition == "-l":
         for x in mainList:
-            if (x < number):
-                temporalList.append(x);
+            if x < number:
+                temporal_list.append(x);
 
-    elif (condition == "-e"):
+    elif condition == "-e":
         for x in mainList:
-            if (x == number):
-                temporalList.append(x);
+            if x == number:
+                temporal_list.append(x);
 
-    elif (condition == "-g"):
+    elif condition == "-g":
         for x in mainList:
-            if (x > number):
-                temporalList.append(x);
+            if x > number:
+                temporal_list.append(x);
 
-    elif (condition == None):
+    elif condition is None:
         print("You didn't enter a condition, check 'help' if you aren't sure.");
 
     else:
         print("Invalid command entered, check 'help' if you aren't sure.")
 
-    return temporalList;
+    return temporal_list;
 
 
-def sortList(listGiven, condition):
-    if (condition == "lg"):
-        for xIndex in listGiven:
-            for yIndex in listGiven:
-                if (yIndex < xIndex):
-                    listGiven[xIndex], listGiven[yIndex] = listGiven[yIndex], listGiven[xIndex]
+def sort_list(list_given, condition):
+    if condition == "lg":
+        for xIndex in list_given:
+            for yIndex in list_given:
+                if yIndex < xIndex:
+                    list_given[xIndex], list_given[yIndex] = list_given[yIndex], list_given[xIndex]
 
-    elif (condition == "gl"):
-        for xIndex in listGiven:
-            for yIndex in listGiven:
-                if (yIndex > xIndex):
-                    listGiven[xIndex], listGiven[yIndex] = listGiven[yIndex], listGiven[xIndex]
+    elif condition == "gl":
+        for xIndex in list_given:
+            for yIndex in list_given:
+                if yIndex > xIndex:
+                    list_given[xIndex], list_given[yIndex] = list_given[yIndex], list_given[xIndex]
 
-    elif (condition == None):
+    elif condition is None:
         print("Condition not given");
 
     else:
         print("Condition not recognized");
 
-    return listGiven;
+    return list_given;
 
 
 """ 
 
-	WELCOME TEXT
-	
-	BEGINNING OF THE APPLICATION
+WELCOME TEXT
+
+BEGINNING OF THE APPLICATION
 
 """
 
 print("Welcome to the 3rd Exercise: ");
-printHelpMenu();
+print_help_menu();
 
 VERBOSE = True;
 
 """ 
 
-	Variables for the list, and variables related to it 
-	
+Variables for the list, and variables related to it 
+
 """
 
 mainList = [];
@@ -185,88 +189,88 @@ minimumRange = 0;
 maximumRange = 1;
 
 machineState = True;
-while (machineState):
+while machineState:
     random.seed();
 
-    command = processUserCommandLineInput("Exercise3@YourChoice~$ ");
+    command = process_user_command_line_input("Exercise3@YourChoice~$ ");
     print("Command entered:\n");
     print(command);
 
-    if (command[0] == "exit"):
+    if command[0] == "exit":
         print("Bye bye.. :)");
         machineState = False;
 
-    elif (command[0] == "help"):
-        printHelpMenu();
+    elif command[0] == "help":
+        print_help_menu();
 
-    elif (command[0] == "rand"):
-        if (command[1] == None):
-            minimumRange = askUserNumberInput("Specify minimum range for random number generation: ")
+    elif command[0] == "rand":
+        if command[1] is None:
+            minimumRange = ask_user_number_input("Specify minimum range for random number generation: ")
         else:
             minimumRange = command[1];
 
-        if (command[2] == None):
-            maximumRange = askUserNumberInput("Specify maximum range for random number generation: ")
+        if command[2] is None:
+            minimum_range = ask_user_number_input("Specify maximum range for random number generation: ")
         else:
-            maximumRange = command[2];
+            maximum_range = command[2];
 
-        if (len(mainList) != 0):
+        if len(mainList) != 0:
             for index in mainList:
-                mainList[index] = generateRandomNumbersForList(minimumRange, maximumRange);
+                mainList[index] = generate_random_numbers_for_list(minimum_range, maximum_range);
         else:
-            print(
-                "\nThe range of values is updated, however your list is empty.\nRun 'set' commmand, to set a size to it.\n\n");
+            print("\nThe range of values is updated, however your list is empty.\nRun 'set' commmand, to set a size "
+                  "to it.\n\n");
 
-    elif (command[0] == "set"):
-        if (checkNumberInputCommand(command[1]) > 0):
+    elif command[0] == "set":
+        if check_number_input_command(command[1]) > 0:
             for index in range(0, int(command[1])):
-                mainList.append(generateRandomNumbersForList(minimumRange, maximumRange));
+                mainList.append(generate_random_numbers_for_list(minimum_range, maximum_range));
 
-        elif (command[1] == None):
+        elif command[1] is None:
             print("Value not given");
 
         else:
             print("Error, value is zero or below.");
 
-    elif (command[0] == "gen"):
-        derivedList = generateDerivedList(command[1], command[2]);
+    elif command[0] == "gen":
+        derivedList = generate_derived_list(command[1], command[2]);
 
-    elif (command[0] == "sort"):
-        if (command[1] == "main"):
-            mainList = sortList(mainList, command[2]);
+    elif command[0] == "sort":
+        if command[1] == "main":
+            mainList = sort_list(mainList, command[2]);
 
-        elif (command[1] == "deri"):
-            derivedList = sortList(derivedList, command[2]);
+        elif command[1] == "deri":
+            derivedList = sort_list(derivedList, command[2]);
 
-        elif (command[1] == None):
+        elif command[1] is None:
             print("List not given");
 
         else:
             print("List not recognized");
 
-    elif (command[0] == "print"):
-        if (command[1] == "main"):
+    elif command[0] == "print":
+        if command[1] == "main":
             print(mainList);
 
-        elif (command[1] == "deri"):
+        elif command[1] == "deri":
             print(derivedList);
 
-        elif (command[1] == None):
+        elif command[1] is None:
             print("List not given");
 
         else:
             print("List not recognized");
 
-    elif (command[0] == "bko"):
-        printSecretScroll();
+    elif command[0] == "bko":
+        print_secret_scroll();
 
     else:
         print("Command not recognized");
 
 """
 
-	I'm gonna pretend like I forgot to delete this,
-		yours truly,
-			bko
-	
+I'm gonna pretend like I forgot to delete this,
+yours truly,
+bko
+
 """
