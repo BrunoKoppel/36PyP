@@ -1,8 +1,4 @@
 *.DS_Store
-<<<<<<< HEAD
 .idea
-=======
 .vs
-.idea
 venv
->>>>>>> c91e7d55e2f9ed33d055520b3b04eeb87e7a829f
