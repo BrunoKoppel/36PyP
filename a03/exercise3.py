@@ -46,16 +46,16 @@ def process_user_command_line_input(prompt):
     user_input_command = str(input(prompt));
     command_result = [];
 
-    if VERBOSE:
+    if VERBOSE1:
         print(user_input_command);
 
     while len(user_input_command) > 0:
-        if VERBOSE:
+        if VERBOSE1:
             print(len(user_input_command));
 
         space_index = user_input_command.find(" ");
 
-        if VERBOSE:
+        if VERBOSE1:
             print(space_index);
 
         if space_index == -1:
@@ -65,7 +65,7 @@ def process_user_command_line_input(prompt):
             command_result.append(user_input_command[:space_index]);
             user_input_command = user_input_command[space_index:];
 
-        if VERBOSE:
+        if VERBOSE1:
             print(space_index);
             print(command_result);
             print(user_input_command);
@@ -173,7 +173,8 @@ BEGINNING OF THE APPLICATION
 print("Welcome to the 3rd Exercise: ");
 print_help_menu();
 
-VERBOSE = True;
+VERBOSE1 = False;
+VERBOSE2 = True;
 
 """ 
 
