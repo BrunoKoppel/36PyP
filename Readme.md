@@ -1,8 +1,10 @@
 # Python Code Vault (PCV)
 
-### Description:
+## Description
 
 A bunch of programs and CLIs that I use as reference.
+
+## 36 Exercises
 
 - a01: Inputs
 - a02: Odd or Even
@@ -10,71 +12,33 @@ A bunch of programs and CLIs that I use as reference.
 - a04: Divisors
 - a05: List Overlap
 - a06: String Lists
-- a07: List Comprehensions   
-- a08: Rock Paper Scissors    
-- a09: Guessing Game One    
-- a10: List Overlap Comprehensions   
-- a11: Check Primality Functions    
-- a12: List Ends  
-- a13: Fibonacci   
-- a14: List Remove Duplicates   
-- a15: Reverse Word Order    
-- a16: Password Generator     
-- a17: Decode A Web Page     
-- a18: Cows And Bulls    
-- a19: Decode A Web Page Two     
-- a20: Element Search  
-- a21: Write To A File  
-- a22: Read From File  
-- a23: File Overlap   
-- a24: Draw A Game Board   
-- a25: Guessing Game Two    
-- a26: Check Tic Tac Toe   
-- a27: Tic Tac Toe Draw   
-- a28: Max Of Three  
-- a29: Tic Tac Toe Game    
-- a30: Pick Word   
-- a31: Guess Letters   
-- a32: Hangman   
-- a33: Birthday Dictionaries  
-- a34: Birthday Json   
-- a35: Birthday Months   
-- a36: Birthday Plots    
-- b01: Selection Sort
-- b02: Bubble Sort
-- b03: Recursive Bubble Sort
-- b04: Insertion Sort
-- b05: Recursive Insertion Sort
-- b06: Merge Sort
-- b07: Iterative Merge Sort
-- b08: Quick Sort
-- b09: Iterative Quick Sort
-- b10: Heap Sort
-- b11: Counting Sort
-- b12: Radix Sort
-- b13: Bucket Sort
-- b14: ShellSort
-- b15: TimSort
-- b16: Comb Sort
-- b17: Pigeonhole Sort
-- b18: Cycle Sort
-- b19: Cocktail Sort
-- b20: Strand Sort
-- b21: Bitonic Sort
-- b22: Pancake sorting
-- b23: Binary Insertion Sort
-- b24: BogoSort or Permutation Sort
-- b25: Gnome Sort
-- b27: Sleep Sort – The King of Laziness / Sorting while Sleeping
-- b28: Structure Sorting (By Multiple Rules) in C++
-- b29: Stooge Sort
-- b30: Tag Sort (To get both sorted and original)
-- b31: Tree Sort
-- b32: Cartesian Tree Sorting
-- b33: Odd-Even Sort / Brick Sort
-- b34: QuickSort on Singly Linked List
-- b35: QuickSort on Doubly Linked List
-- b36: 3-Way QuickSort (Dutch National Flag)
-- b37: Merge Sort for Linked Lists
-- b38: Merge Sort for Doubly Linked List
-- b39: 3-way Merge Sort
+- a07: List Comprehensions
+- a08: Rock Paper Scissors
+- a09: Guessing Game One
+- a10: List Overlap Comprehensions
+- a11: Check Primality Functions
+- a12: List Ends
+- a13: Fibonacci
+- a14: List Remove Duplicates
+- a15: Reverse Word Order
+- a16: Password Generator
+- a17: Decode A Web Page
+- a18: Cows And Bulls
+- a19: Decode A Web Page Two
+- a20: Element Search
+- a21: Write To A File
+- a22: Read From File
+- a23: File Overlap
+- a24: Draw A Game Board
+- a25: Guessing Game Two
+- a26: Check Tic Tac Toe
+- a27: Tic Tac Toe Draw
+- a28: Max Of Three
+- a29: Tic Tac Toe Game
+- a30: Pick Word
+- a31: Guess Letters
+- a32: Hangman
+- a33: Birthday Dictionaries
+- a34: Birthday Json
+- a35: Birthday Months
+- a36: Birthday Plots
