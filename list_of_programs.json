@@ -1,12 +1,12 @@
 [
   {
     "title": "Selection of curated exercises",
-    "inputs": ["Inputs","dir_a/a01/exercise1.py"],
-    "odds": ["Odd or Even","dir_a/a02/exercise2.py"],
-    "list": ["List less than x","dir_a/a03/exercise3.py"]
+    "1": ["Inputs","dir_a/a01/exercise1.py"],
+    "2": ["Odd or Even","dir_a/a02/exercise2.py"],
+    "3": ["List less than x","dir_a/a03/exercise3.py"]
   },
   {
     "title": "Demonstration of sort types",
-    "selection": ["Selection Sort","dir_b/b01/selection_sort.py"]
+    "1": ["Selection Sort","dir_b/b01/selection_sort.py"]
   }
 ]

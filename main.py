@@ -4,24 +4,35 @@ import sys
 import os
 
 
+def getUserInput():
+    user_input_selection = input("\n(Enter the number corresponding with the program) => ")
+    if user_input_selection.isdigit():
+        return user_input_selection
+
+    print("Command entered is not a valid selection, try again...")
+    return 0
+
+
 def runCommandLineMenu(list_of_programs_passed):
     print("Welcome to Python Code Vault!")
     print("Choose a type of program to run:")
     print("1 => Selection of curated exercises.")
     print("2 => Demonstration of sort types.")
-    user_input_selection = int(input("\n(Enter the number corresponding with the program) => "))
-    printMenuOfSelections(list_of_programs_passed[user_input_selection-1])
+    printMenuOfSelections(list_of_programs_passed[getUserInput()-1])
 
 
 def printMenuOfSelections(list_of_files):
-    x = 0
-    print("The list of files is a " + str(type(list_of_files)))
-    print(list_of_files.get("title"))
+    x = False
     for obj in list_of_files:
-        print(obj + str(type(obj)))
+        if x:
+            print(list_of_files.get(obj))
+            x = True
+        else:
+            print(obj + ". => " + list_of_files.get(obj)[0])
 
-    user_input_selection = int(input("\n(Enter the number corresponding with the program) => "))
-    os.system("sudo python ./" + list_of_files.get(user_input_selection)[1])
+    user_input_selection = getUserInput()
+    if user_input_selection != 0 and user_input_selection < len(list_of_files):
+        os.system("python ./" + list_of_files.get(str(user_input_selection))[1])
 
 
 if __name__ == '__main__':
@@ -30,4 +41,5 @@ if __name__ == '__main__':
 
     if len(sys.argv) < 2:
         runCommandLineMenu(list_of_programs)
+        print("End of Program reached")
 
