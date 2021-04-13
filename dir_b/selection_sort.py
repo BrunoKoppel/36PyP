@@ -7,16 +7,20 @@ def selection_sort(array, VERBOSE):
 
     for i in range(len(array)):
         if VERBOSE:
-            print("At index => " + str(i))
+            print("Currently at [" + str(i) + "] -> " + str(array[i]))
 
         minimum_index = i
         for j in range(i + 1, len(array)):
             if VERBOSE:
-                print("Comparing => " + str(j))
+                print("Comparing [" + str(i) + "] -> " + str(array[i]) + "  with [" + str(j) + "] -> " + str(array[j]))
             if array[minimum_index] > array[j]:
                 minimum_index = j
+                if VERBOSE:
+                    print("found minimum index at index => [" + str(minimum_index) + "]")
 
         # Swap method
+        if VERBOSE:
+            print("Swapping [" + str(i) + "] -> " + str(array[i]) + " with [" + str(minimum_index) + "] -> " + str(array[minimum_index]))
         array[i], array[minimum_index] = array[minimum_index], array[i]
 
     print("Sorted Array => " + str(array))
